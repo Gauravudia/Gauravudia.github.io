@@ -8,22 +8,31 @@
   </head>
   <body>
     <h1>Testing DCM Web SDK</h1>
-    <!--
-Start of Floodlight Tag: Please do not remove
-Activity name of this tag: Test
-URL of the webpage where the tag is expected to be placed: https://gauravudia.github.io/
-This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
-Creation Date: 10/11/2022
--->
-    <script type="text/javascript">
-      var axel = Math.random() + "";
-      var a = axel * 10000000000000;
-      document.write(
-        '<iframe src="https://10735075.fls.doubleclick.net/activityi;src=10735075;type=test;cat=testc0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ord=' +
-          a +
-          '?" width="1" height="1" frameborder="0" style="display:none"></iframe>'
-      );
+    <button onclick="purchase()">Purchase</button>
+    <button onclick="checkout()">Checkout</button>
+
+    <script>
+      function purchase() {
+        var axel = Math.random() + "";
+        var a = axel * 10000000000000;
+        document.write(
+          '<iframe src="https://11669336.fls.doubleclick.net/activityi;src=11669336;type=purchase;cat=purch0;u1=gaurav1;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ord=' +
+            a +
+            '?" width="1" height="1" frameborder="0" style="display:none"></iframe>'
+        );
+      }
     </script>
-    <!-- End of Floodlight Tag: Please do not remove -->
+
+    <script>
+      function checkout() {
+        <iframe
+          src="https://11669336.fls.doubleclick.net/activityi;src=11669336;type=checkout;cat=check0;qty=1;cost=[Revenue];u1=[rudder1];u2=[rudder2];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ord=[OrderID]?"
+          width="1"
+          height="1"
+          frameborder="0"
+          style="display:none"
+        ></iframe>;
+      }
+    </script>
   </body>
 </html>
