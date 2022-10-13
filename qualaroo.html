@@ -30,6 +30,13 @@
         { name: "ABC Test update", email: "abc@testupdate.com", age: 25 },
       ]);
       _kiq.push(["showSurvey", "227974"]);
+      _kiq.push([
+        "eventHandler",
+        "show",
+        function () {
+          console.log("eventHandler loaded");
+        },
+      ]);
     </script>
   </body>
 </html>
