@@ -29,12 +29,33 @@
         "set",
         { name: "ABC Test update", email: "abc@testupdate.com", age: 27 },
       ]);
-      _kiq.push(["showSurvey", "227974", true]);
+      //   _kiq.push(["showSurvey", "227974", true]);
       _kiq.push([
         "eventHandler",
         "show",
         function () {
-          console.log("eventHandler loaded");
+          console.log("surveyed showed");
+        },
+      ]);
+      _kiq.push([
+        "eventHandler",
+        "close",
+        function () {
+          console.log("surveyed closed");
+        },
+      ]);
+      _kiq.push([
+        "eventHandler",
+        "noTargetMatch",
+        function () {
+          console.log("no surveys to fire");
+        },
+      ]);
+      _kiq.push([
+        "eventHandler",
+        "submit",
+        function (answers_array, nudge_id, screen_id) {
+          console.log(answers_array, nudge_id, screen_id);
         },
       ]);
     </script>
