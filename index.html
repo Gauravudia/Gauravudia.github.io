@@ -10,16 +10,17 @@
     <h1>Testing DCM Web SDK</h1>
     <button onclick="purchase()">Purchase</button>
     <button onclick="checkout()">Checkout</button>
+    <button onclick="productItem()">Product Item</button>
 
     <script>
       function purchase() {
         var axel = Math.random() + "";
         var a = axel * 10000000000000;
-//         document.write(
-//           '<iframe src="https://11669336.fls.doubleclick.net/activityi;src=11669336;type=purchase;cat=purch0;u1=gaurav1;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ord=' +
-//             a +
-//             '?" width="1" height="1" frameborder="0" style="display:none"></iframe>'
-//         );
+        //         document.write(
+        //           '<iframe src="https://11669336.fls.doubleclick.net/activityi;src=11669336;type=purchase;cat=purch0;u1=gaurav1;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ord=' +
+        //             a +
+        //             '?" width="1" height="1" frameborder="0" style="display:none"></iframe>'
+        //         );
         const iframe = document.createElement("iframe");
         iframe.src = `https://11669336.fls.doubleclick.net/activityi;src=11669336;type=purchase;cat=purch0;u1=gaurav1;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=${a}?`;
         iframe.style.width = "1";
@@ -34,6 +35,20 @@
       function checkout() {
         const iframe = document.createElement("iframe");
         iframe.src = `https://11669336.fls.doubleclick.net/activityi;src=11669336;type=checkout;cat=check0;qty=1;cost=1000;u1=gaurav1;u2=gaurav2;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=1?`;
+        iframe.style.width = "1";
+        iframe.style.height = "1";
+        iframe.style.display = "none";
+        iframe.frameBorder = 0;
+        document.getElementsByTagName("body")[0].appendChild(iframe);
+      }
+    </script>
+
+    <script>
+      function productItem() {
+        var axel = Math.random() + "";
+        var a = axel * 10000000000000;
+        const iframe = document.createElement("iframe");
+        iframe.src = `https://11669336.fls.doubleclick.net/activityi;src=11669336;type=prod_itm;cat=produ0;qty=89.8341992;cost=290149;u1=gaurav1;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=${a}?`;
         iframe.style.width = "1";
         iframe.style.height = "1";
         iframe.style.display = "none";
