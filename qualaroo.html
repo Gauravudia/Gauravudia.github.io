@@ -24,6 +24,75 @@
     </script>
 
     <script type="text/javascript" charset="utf-8">
+      _kiq.push(["set", { "Triggered event": "Add to cart" }]);
+      // _kiq.push(["identify", ""]);
+      // _kiq.push([
+      //   "set",
+      //   { name: "Albert Pinto", email: "albert@test.com", age: 31 },
+      // ]);
+      // _kiq.push(["identify", "abc234"]);
+      // _kiq.push([
+      //   "set",
+      //   { name: "ABC Test update", email: "abc@testupdate.com", age: 27 },
+      // ]);
+      //   _kiq.push(["showSurvey", "227974", true]);
+      _kiq.push([
+        "eventHandler",
+        "show",
+        function () {
+          console.log("surveyed showed");
+        },
+      ]);
+      _kiq.push([
+        "eventHandler",
+        "close",
+        function () {
+          console.log("surveyed closed");
+        },
+      ]);
+      _kiq.push([
+        "eventHandler",
+        "noTargetMatch",
+        function () {
+          console.log("no surveys to fire");
+        },
+      ]);
+      _kiq.push([
+        "eventHandler",
+        "submit",
+        function (answers_array, nudge_id, screen_id) {
+          console.log(answers_array, nudge_id, screen_id);
+        },
+      ]);
+    </script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Testing Qualaroo SDK</title>
+  </head>
+  <body>
+    <h1>Qualaroo</h1>
+
+    <!-- Qualaroo for gauravudia.github.io -->
+    <!-- Paste this code right after the <body> tag on every page of your site. -->
+    <script type="text/javascript">
+      var _kiq = _kiq || [];
+      (function () {
+        setTimeout(function () {
+          var d = document,
+            f = d.getElementsByTagName("script")[0],
+            s = d.createElement("script");
+          s.type = "text/javascript";
+          s.async = true;
+          s.src = "https://cl.qualaroo.com/ki.js/82007/j0N.js";
+          f.parentNode.insertBefore(s, f);
+        }, 1);
+      })();
+    </script>
+
+    <script type="text/javascript" charset="utf-8">
       _kiq.push(["identify", ""]);
       _kiq.push([
         "set",
