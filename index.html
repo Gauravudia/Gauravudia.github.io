@@ -1,59 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DCM Web SDK</title>
+    <title>Sendinblue SDK POC</title>
+    <script type="text/javascript">
+      (function () {
+        window.sib = {
+          equeue: [],
+          client_key: "1vd0i6w1al7q38ap5kucurfy",
+        };
+        window.sendinblue = {};
+        for (
+          var j = ["track", "identify", "trackLink", "page"], i = 0;
+          i < j.length;
+          i++
+        ) {
+          (function (k) {
+            window.sendinblue[k] = function () {
+              var arg = Array.prototype.slice.call(arguments);
+              (
+                window.sib[k] ||
+                function () {
+                  var t = {};
+                  t[k] = arg;
+                  window.sib.equeue.push(t);
+                }
+              )(arg[0], arg[1], arg[2], arg[3]);
+            };
+          })(j[i]);
+        }
+        var n = document.createElement("script"),
+          i = document.getElementsByTagName("script")[0];
+        (n.type = "text/javascript"),
+          (n.id = "sendinblue-js"),
+          (n.async = !0),
+          (n.src =
+            "https://sibautomation.com/sa.js?key=" + window.sib.client_key),
+          i.parentNode.insertBefore(n, i),
+          window.sendinblue.page();
+      })();
+    </script>
   </head>
   <body>
-    <h1>Testing DCM Web SDK</h1>
-    <button onclick="purchase()">Purchase</button>
-    <button onclick="checkout()">Checkout</button>
-    <button onclick="productItem()">Product Item</button>
+    <h1>sendingblue testing</h1>
+    <button onclick="identify()">Identify</button>
+    <button onclick="page()">Page</button>
+    <button onclick="track_events()">Track events</button>
 
     <script>
-      function purchase() {
-        var axel = Math.random() + "";
-        var a = axel * 10000000000000;
-        //         document.write(
-        //           '<iframe src="https://11669336.fls.doubleclick.net/activityi;src=11669336;type=purchase;cat=purch0;u1=gaurav1;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ord=' +
-        //             a +
-        //             '?" width="1" height="1" frameborder="0" style="display:none"></iframe>'
-        //         );
-        const iframe = document.createElement("iframe");
-        iframe.src = `https://11669336.fls.doubleclick.net/activityi;src=11669336;type=purchase;cat=purch0;u1=gaurav1;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=${a}?`;
-        iframe.style.width = "1";
-        iframe.style.height = "1";
-        iframe.style.display = "none";
-        iframe.frameBorder = 0;
-        document.getElementsByTagName("body")[0].appendChild(iframe);
+      function identify() {
+        window.sendinblue.identify("amania_acosta@example.com", {
+          FIRSTNAME: "Amania",
+          LASTNAME: "Acosta",
+          age: 31,
+          location: "San's Francisco",
+        });
       }
     </script>
 
     <script>
-      function checkout() {
-        const iframe = document.createElement("iframe");
-        iframe.src = `https://11669336.fls.doubleclick.net/activityi;src=11669336;type=checkout;cat=check0;qty=10;cost=1000;u1=gaurav1;u2=gaurav2;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=1?`;
-        iframe.style.width = "1";
-        iframe.style.height = "1";
-        iframe.style.display = "none";
-        iframe.frameBorder = 0;
-        document.getElementsByTagName("body")[0].appendChild(iframe);
+      function track_events() {
+        window.sendinblue.track(
+          "Card Created",
+          {
+            FIRSTNAME: "Raphael",
+            LASTNAME: "Morrow 2",
+            PLAN: "Prime Member",
+            LOCATION: "San Francisco",
+          },
+          {
+            id: "a4123c72-c6f7-4d8e-b8cd-4abb8a807891",
+            data: {
+              products: [
+                {
+                  product_id: 1234,
+                  product_name: "Track Pants",
+                  amount: 1,
+                  price: 220,
+                },
+                {
+                  product_id: 5768,
+                  product_name: "T-Shirt",
+                  amount: 5,
+                  price: 1058,
+                },
+              ],
+            },
+          }
+        );
       }
     </script>
 
     <script>
-      function productItem() {
-        var axel = Math.random() + "";
-        var a = axel * 10000000000000;
-        const iframe = document.createElement("iframe");
-        iframe.src = `https://11669336.fls.doubleclick.net/activityi;src=11669336;type=prod_itm;cat=produ0;qty=89.8341992;cost=290149;u1=gaurav1;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=${a}?`;
-        iframe.style.width = "1";
-        iframe.style.height = "1";
-        iframe.style.display = "none";
-        iframe.frameBorder = 0;
-        document.getElementsByTagName("body")[0].appendChild(iframe);
+      function page() {
+        window.sendinblue.page("Thank You", {
+          ma_title: "Thank You Page",
+          ma_url: "http://www.example.com/thank-you",
+          ma_path: "/thank-you",
+          ma_referrer: "http://www.example.com/home",
+        });
       }
     </script>
   </body>
