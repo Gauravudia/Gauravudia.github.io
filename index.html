@@ -43,60 +43,14 @@
   <body>
     <h1>sendingblue testing</h1>
     <button onclick="identify()">Identify</button>
-    <button onclick="page()">Page</button>
-    <button onclick="track_events()">Track events</button>
 
     <script>
       function identify() {
-        window.sendinblue.identify("amania_acosta@example.com", {
-          FIRSTNAME: "Amania",
-          LASTNAME: "Acosta",
-          age: 31,
+        window.sendinblue.identify("kaine_chavezr@example.com", {
+          FIRSTNAME: "Kaine ",
+          LASTNAME: "Chavez",
+          age: 37,
           location: "San's Francisco",
-        });
-      }
-    </script>
-
-    <script>
-      function track_events() {
-        window.sendinblue.track(
-          "Card Created",
-          {
-            FIRSTNAME: "Raphael",
-            LASTNAME: "Morrow 2",
-            PLAN: "Prime Member",
-            LOCATION: "San Francisco",
-          },
-          {
-            id: "a4123c72-c6f7-4d8e-b8cd-4abb8a807891",
-            data: {
-              products: [
-                {
-                  product_id: 1234,
-                  product_name: "Track Pants",
-                  amount: 1,
-                  price: 220,
-                },
-                {
-                  product_id: 5768,
-                  product_name: "T-Shirt",
-                  amount: 5,
-                  price: 1058,
-                },
-              ],
-            },
-          }
-        );
-      }
-    </script>
-
-    <script>
-      function page() {
-        window.sendinblue.page("Thank You", {
-          ma_title: "Thank You Page",
-          ma_url: "http://www.example.com/thank-you",
-          ma_path: "/thank-you",
-          ma_referrer: "http://www.example.com/home",
         });
       }
     </script>
